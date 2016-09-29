@@ -1,0 +1,28 @@
+sudo: false
+language: node_js
+node_js:
+  - '6'
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+notifications:
+  email: false
+before_install:
+  - npm i -g npm@^3.9.5
+before_script:
+  - npm prune
+script:
+  - npm run build
+after_success:
+deploy:
+  provider: npm
+  email: ercp42@gmail.com 
+  api_key:
+    secure: <token>
+  on:
+    tags: true
+    repo: ercpereda/er-react-metro-countdown
+    branch: master

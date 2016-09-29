@@ -1,0 +1,87 @@
+//@import (once) "colors";
+
+.countdown {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1em 0 1.2em;
+
+  .part {
+      display: inline-block;
+      position: relative;
+    
+    &.days, &.hours, &.minutes, &.seconds {
+      &:after {
+        position: absolute;
+        text-align: center;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        font-size: .6em;
+        color: inherit;
+      }
+    }
+
+    &.disabled {
+      .digit {
+        opacity: .3;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .digit, .divider {
+    display: inline-block;
+    padding: .3125em .625em;
+    background-color: #1ba1e2;
+    color: #ffffff;
+    cursor: default;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+    transition: all .5s ease;
+  }
+
+  .digit, .divider {
+    margin-left: 4px;
+  }
+
+  .divider {
+    padding: .125em .25em;
+    color: #1d1d1d;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &.tick {
+    .divider {
+      opacity: 0;
+    }
+  }
+
+  &.labels-top {
+    margin: 1.2em 0 .1em;
+
+    .part {
+      &.days, &.hours, &.minutes, &.seconds {
+        &:after {
+          top: 0;
+          left: 0;
+          margin-top: -1.5em;
+        }
+      }
+    }
+  }
+
+  &.rounded {
+    .part {
+      .digit {
+        border-radius: .5em
+      }
+    }
+  }
+
+  .digit-scaleIn {
+    transition: all .5s ease;
+    transform: scale(1.1);
+  }
+}

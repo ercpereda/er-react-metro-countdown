@@ -1,0 +1,12 @@
+{
+  "generator-er-react-component": {
+    "appname": "er-react-metro-countdown",
+    "componentName": "Countdown",
+    "description": "React countdown widget",
+    "version": "0.0.0",
+    "license": "MIT",
+    "githubuser": "ercpereda",
+    "authorname": "Ernesto R. C. Pereda",
+    "authoremail": "ercp42@gmail.com"
+  }
+}

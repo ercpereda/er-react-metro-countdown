@@ -1,0 +1,71 @@
+{
+  "name": "er-react-metro-countdown",
+  "version": "0.0.0",
+  "description": "React countdown widget",
+  "main": "dist/er-react-metro-countdown.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --content-base dist/",
+    "build": "NODE_ENV=production webpack --progress --colors",
+    "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
+    "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
+    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format 'node_modules/eslint-friendly-formatter' || true",
+    "commit": "git-cz",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ercpereda/er-react-metro-countdown.git"
+  },
+  "keywords": [],
+  "files": [
+    "dist"
+  ],
+  "author": "Ernesto R. C. Pereda <ercp42@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ercpereda/er-react-metro-countdown/issues"
+  },
+  "homepage": "https://github.com/ercpereda/er-react-metro-countdown#readme",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run eslint"
+    }
+  },
+  "dependencies": {
+    "classnames": "2.2.5",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "3.2.0",
+    "babel": "6.5.2",
+    "babel-core": "6.14.0",
+    "babel-eslint": "7.0.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-es2015": "6.14.0",
+    "babel-preset-react": "6.11.1",
+    "clean-webpack-plugin": "0.1.10",
+    "commitizen": "2.8.6",
+    "copy-webpack-plugin": "3.0.1",
+    "css-loader": "0.25.0",
+    "eslint": "3.6.1",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-friendly-formatter": "2.0.6",
+    "eslint-loader": "1.5.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "ghooks": "1.3.2",
+    "postcss-calc": "5.3.1",
+    "postcss-custom-properties": "5.0.1",
+    "postcss-loader": "0.13.0",
+    "style-loader": "0.13.1",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.1",
+    "webpack-merge": "0.14.1"
+  }
+}
