@@ -1,6 +1,6 @@
 {
   "name": "er-react-metro-countdown",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "React countdown widget",
   "main": "dist/er-react-metro-countdown.js",
   "scripts": {
