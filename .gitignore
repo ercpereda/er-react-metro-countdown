@@ -44,3 +44,6 @@ jspm_packages
 
 # Buil Folder
 dist
+
+# Optional eslint cache file
+.eslintcache

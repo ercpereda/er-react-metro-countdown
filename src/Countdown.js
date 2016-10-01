@@ -16,6 +16,10 @@ class Countdown extends React.Component {
       hours: 0,
       mins: 0,
       secs: 0,
+      daysDisabled: false,
+      hoursDisabled: false,
+      minsDisabled: false,
+      secsDisabled: false,
       tick: false
     };
 
@@ -67,7 +71,7 @@ class Countdown extends React.Component {
     this.setState({ days: Countdown.toDigit(d) });
 
     if (d === 0) {
-      // disable days
+      this.setState({ daysDisabled: true });
     }
 
     const h = Math.floor(left / (60 * 60));
@@ -75,7 +79,7 @@ class Countdown extends React.Component {
     this.setState({ hours: Countdown.toDigit(h) });
 
     if (d === 0 && h === 0) {
-      // disable hours
+      this.setState({ hoursDisabled: true });
     }
 
     const m = Math.floor(left / 60);
@@ -83,7 +87,7 @@ class Countdown extends React.Component {
     this.setState({ mins: Countdown.toDigit(m) });
 
     if (d === 0 && h === 0 && m === 0) {
-      // disable minutes
+      this.setState({ minsDisabled: true });
     }
 
     const s = left;
@@ -94,6 +98,7 @@ class Countdown extends React.Component {
     }
 
     if (d === 0 && h === 0 && m === 0 && s === 0) {
+      this.setState({ secsDisabled: true });
       if (this.props.onStop) {
         this.props.onStop();
       }
@@ -107,11 +112,16 @@ class Countdown extends React.Component {
   }
 
   render() {
-    const countdownClasses = classnames(styles.countdown, { [styles.tick]: this.state.tick });
-    const daysClasses = classnames(styles.part, styles.days, );
-    const hoursClasses = classnames(styles.part, styles.hours);
-    const minutesClasses = classnames(styles.part, styles.minutes);
-    const secondsClasses = classnames(styles.part, styles.seconds);
+    const countdownClasses = classnames(styles.countdown,
+        { [styles.tick]: this.state.tick });
+    const daysClasses = classnames(styles.part, styles.days,
+        { [styles.disabled]: this.state.daysDisabled });
+    const hoursClasses = classnames(styles.part, styles.hours,
+        { [styles.disabled]: this.state.hoursDisabled });
+    const minutesClasses = classnames(styles.part, styles.minutes,
+        { [styles.disabled]: this.state.minsDisabled });
+    const seconsClasses = classnames(styles.part, styles.seconds,
+        { [styles.disabled]: this.state.secsDisabled });
     const digitClasses = classnames(styles.digit);
 
     return (
@@ -120,18 +130,18 @@ class Countdown extends React.Component {
           <div className={digitClasses}>{this.state.days[0]}</div>
           <div className={digitClasses}>{this.state.days[1]}</div>
         </div>
-        <div className={styles.divider} />
+        <div className={styles.divider}>:</div>
         <div className={hoursClasses}>
           <div className={digitClasses}>{this.state.hours[0]}</div>
           <div className={digitClasses}>{this.state.hours[1]}</div>
         </div>
-        <div className={styles.divider} />
+        <div className={styles.divider}>:</div>
         <div className={minutesClasses}>
           <div className={digitClasses}>{this.state.mins[0]}</div>
           <div className={digitClasses}>{this.state.mins[1]}</div>
         </div>
-        <div className={styles.divider} />
-        <div className={secondsClasses}>
+        <div className={styles.divider}>:</div>
+        <div className={seconsClasses}>
           <div className={digitClasses}>{this.state.secs[0]}</div>
           <div className={digitClasses}>{this.state.secs[1]}</div>
         </div>

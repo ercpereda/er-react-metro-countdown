@@ -2,4 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Countdown from './Countdown';
 
-ReactDOM.render(<Countdown minutes={1} onStop={() => console.log('stoped')} />, document.getElementById('app'));
+const template = (
+  <Countdown
+    days={1}
+    hours={3}
+    minutes={1}
+    secons={30}
+    onTick={(d, h, m, s) => console.log(`${d}:${h}:${m}:${s}`)}
+    onStop={() => alert('stoped')}
+  />
+);
+
+ReactDOM.render(template, document.getElementById('app'));
